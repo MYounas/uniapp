@@ -13,7 +13,7 @@
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
-
+		<p style="color: white">Students</p>
         <!-- search form -->
         <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
@@ -32,34 +32,56 @@
                 'items' => [
                     ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
                     ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii']],
-                    ['label' => 'Debug', 'icon' => 'fa fa-dashboard', 'url' => ['/debug']],
-                    ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
-                        'label' => 'Same tools',
-                        'icon' => 'fa fa-share',
-                        'url' => '#',
-                        'items' => [
-                            ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii'],],
-                            ['label' => 'Debug', 'icon' => 'fa fa-dashboard', 'url' => ['/debug'],],
-                            [
-                                'label' => 'Level One',
-                                'icon' => 'fa fa-circle-o',
-                                'url' => '#',
-                                'items' => [
-                                    ['label' => 'Level Two', 'icon' => 'fa fa-circle-o', 'url' => '#',],
-                                    [
-                                        'label' => 'Level Two',
-                                        'icon' => 'fa fa-circle-o',
-                                        'url' => '#',
-                                        'items' => [
-                                            ['label' => 'Level Three', 'icon' => 'fa fa-circle-o', 'url' => '#',],
-                                            ['label' => 'Level Three', 'icon' => 'fa fa-circle-o', 'url' => '#',],
-                                        ],
-                                    ],
-                                ],
-                            ],
-                        ],
+                    	'label' => 'Courses',
+                    	'icon' => 'fa fa-dashboard',
+                    	'url' => '#',
+                    	'items'=>[
+                    		['label'=>'Manage Courses','icon'=>'fa fa-dashboard','url'=>['/courses/index']],		
+                    	],
                     ],
+                    [
+                    	'label' => 'Students',
+                    	'icon' => 'fa fa-dashboard',
+                    	'url' => '#',
+                    	'items'=>[
+                    		['label'=>'Manage Students','icon'=>'fa fa-dashboard','url'=>['/students/index']],
+                    	],
+                    ],
+                    [
+                    	'label' => 'Employees',
+                    	'icon' => 'fa fa-dashboard',
+                    	'url' => '#',
+                    	'items'=>[
+                    		['label'=>'Manage Employees','icon'=>'fa fa-dashboard','url'=>['/employees/index']],		
+                    	],
+                    ],
+//                     [
+//                         'label' => 'Same tools',
+//                         'icon' => 'fa fa-share',
+//                         'url' => '#',
+//                         'items' => [
+//                             ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii'],],
+//                             ['label' => 'Debug', 'icon' => 'fa fa-dashboard', 'url' => ['/debug'],],
+//                             [
+//                                 'label' => 'Level One',
+//                                 'icon' => 'fa fa-circle-o',
+//                                 'url' => '#',
+//                                 'items' => [
+//                                     ['label' => 'Level Two', 'icon' => 'fa fa-circle-o', 'url' => '#',],
+//                                     [
+//                                         'label' => 'Level Two',
+//                                         'icon' => 'fa fa-circle-o',
+//                                         'url' => '#',
+//                                         'items' => [
+//                                             ['label' => 'Level Three', 'icon' => 'fa fa-circle-o', 'url' => '#',],
+//                                             ['label' => 'Level Three', 'icon' => 'fa fa-circle-o', 'url' => '#',],
+//                                         ],
+//                                     ],
+//                                 ],
+//                             ],
+//                         ],
+//                     ],
                 ],
             ]
         ) ?>

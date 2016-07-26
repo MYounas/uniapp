@@ -74,32 +74,32 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionLogin()
-    {
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
+//     public function actionLogin()
+//     {
+//         if (!Yii::$app->user->isGuest) {
+//             return $this->goHome();
+//         }
 
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        }
-        return $this->render('login', [
-            'model' => $model,
-        ]);
-    }
+//         $model = new LoginForm();
+//         if ($model->load(Yii::$app->request->post()) && $model->login()) {
+//             return $this->goBack();
+//         }
+//         return $this->render('login', [
+//             'model' => $model,
+//         ]);
+//     }
 
-    /**
-     * Logout action.
-     *
-     * @return string
-     */
-    public function actionLogout()
-    {
-        Yii::$app->user->logout();
+//     /**
+//      * Logout action.
+//      *
+//      * @return string
+//      */
+//     public function actionLogout()
+//     {
+//         Yii::$app->user->logout();
 
-        return $this->goHome();
-    }
+//         return $this->goHome();
+//     }
 
     /**
      * Displays contact page.

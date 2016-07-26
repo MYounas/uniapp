@@ -13,7 +13,7 @@
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
-
+		<p style="color: white">Admin</p>
         <!-- search form -->
         <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
@@ -40,7 +40,22 @@
                     		['label'=>'Manage Courses','icon'=>'fa fa-dashboard','url'=>['/courses/index']],		
                     	],
                     ],
-                		
+                    [
+                    	'label' => 'Students',
+                    	'icon' => 'fa fa-dashboard',
+                    	'url' => '#',
+                    	'items'=>[
+                    		['label'=>'Manage Students','icon'=>'fa fa-dashboard','url'=>['/students/index']],
+                    	],
+                    ],
+                    [
+                    	'label' => 'Employees',
+                    	'icon' => 'fa fa-dashboard',
+                    	'url' => '#',
+                    	'items'=>[
+                    		['label'=>'Manage Employees','icon'=>'fa fa-dashboard','url'=>['/employees/index']],		
+                    	],
+                    ],
 //                     [
 //                         'label' => 'Same tools',
 //                         'icon' => 'fa fa-share',

@@ -8,6 +8,7 @@ use app\models\UsersSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\models\LoginForm;
 
 /**
  * UsersController implements the CRUD actions for Users model.
@@ -35,14 +36,54 @@ class UsersController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new UsersSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+    	if (Yii::$app->user->isGuest) {
+    		return $this->redirect(['users/login']);
+    	}else{
+    		$searchModel = new UsersSearch();
+    		$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+    		
+    		return $this->render('index', [
+    				'searchModel' => $searchModel,
+    				'dataProvider' => $dataProvider,
+    		]);
+    	}
+    	
     }
+    
+    public function actionLogin()
+    {
+    	if (!Yii::$app->user->isGuest) {
+    		return $this->goHome();
+    	}
+    	$users=new Users();
+    	$model = new LoginForm();
+    	if ($model->load(Yii::$app->request->post()) && $model->login()) {
+    		$found=$users->findByUsername($model->username);
+    		if($found->user_type=='student'){
+    			return $this->redirect('?r=students/view&id='.$found->student->id);
+    		}
+    		else if($found->user_type=='employee'){
+    			return $this->redirect('?r=employees/view&id='.$found->employee->id);
+    		}
+    		return $this->goBack();
+    	}
+    	return $this->render('login', [
+    			'model' => $model,
+    	]);
+    }
+    
+    /**
+     * Logout action.
+     *
+     * @return string
+     */
+    public function actionLogout()
+    {
+    	Yii::$app->user->logout();
+    
+    	return $this->goHome();
+    }
+    
 
     /**
      * Displays a single Users model.

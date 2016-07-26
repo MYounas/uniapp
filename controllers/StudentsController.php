@@ -19,6 +19,7 @@ class StudentsController extends Controller
      */
     public function behaviors()
     {
+    	$this->layout='..\stu_dashboard\main.php';
         return [
             'verbs' => [
                 'class' => VerbFilter::className(),

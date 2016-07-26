@@ -19,6 +19,7 @@ class EmployeesController extends Controller
      */
     public function behaviors()
     {
+    	$this->layout='..\emp_dashboard\main.php';
         return [
             'verbs' => [
                 'class' => VerbFilter::className(),
